@@ -17,5 +17,10 @@ for files in total_mrc_files:
     if unconverted != "":
         unconverted_mrc_list.append(unconverted[:-1])
 
-print(unconverted_mrc_list)
-print(len(unconverted_mrc_list))
+#print(unconverted_mrc_list)
+#print(len(unconverted_mrc_list))
+
+output_image_list_file = open("unconverted_mrc_list.txt", "w")
+for image in unconverted_mrc_list:
+    output_image_list_file.write(image + "\n")
+output_image_list_file.close()
