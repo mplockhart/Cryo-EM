@@ -11,7 +11,8 @@ for files in total_mrc_files:
     for image in done_tiffs:
         unconverted = ""
         if files[:-5] == image[:-5]:
-        unconverted = ""
+            unconverted = ""
+            break
         else:
             unconverted = files
     unconverted_mrc_list.append(unconverted)
