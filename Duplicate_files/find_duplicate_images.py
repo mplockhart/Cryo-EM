@@ -7,16 +7,13 @@ def image_list(image_list):
    return content_list
 
 def fileNameOnly(item):
-    print("1 " + item)
     temp = os.path.basename(item)
-    print("2 " + temp)
     strip = os.path.splitext(temp)[0]
-    print("3 " + strip)
     return strip
 
-with open('full_image_list.txt') as f:
+with open('full_image_list_ColVI.txt') as f:
     total_mrc_files = f.read().splitlines()
-with open('converted_tiff_files.txt') as f:
+with open('Converted_tiff_files_ColVI.txt') as f:
     done_tiffs = f.read().splitlines()
 
 #total_mrc_files = image_list("full_image_list.txt")
@@ -36,7 +33,7 @@ for mrc in total_mrc_files:
 #print(unconverted_mrc_list)
 #print(len(unconverted_mrc_list))
 
-output_image_list_file = open("unconverted_mrc_list.txt", "w")
+output_image_list_file = open("unconverted_mrc_list2.txt", "w")
 for image in unconverted_mrc_list:
     output_image_list_file.write(image + "\n")
 output_image_list_file.close()
