@@ -14,13 +14,15 @@ def fileNameOnly(item):
     print("3 " + strip)
     return strip
 
-def convertToTiff(list, output):
+def convertToTiff(list, input, output):
     for file in list:
     	temp = os.path.basename(file)
-    	#print(temp)
+    	#print("temp " + temp)
     	strip = os.path.splitext(temp)[0]
-    	#print(strip)
-    	os.system("relion_convert_to_tiff --i " + file + " --o " )
+    	#print("strip " + strip)
+    	#print(input)
+    	#print(output)
+    	os.system("cd " + output + " ;relion_convert_to_tiff --i " + temp )
 
 with open('full_image_list.txt') as f:
     total_mrc_files = f.read().splitlines()
@@ -49,6 +51,6 @@ for mrc in total_mrc_files:
 #    output_image_list_file.write(image + "\n")
 #output_image_list_file.close()
 
-convertToTiff(unconverted_mrc_list, os.path.abspath(done_tiffs[0]))
+convertToTiff(unconverted_mrc_list, os.path.abspath(total_mrc_files[0]), os.path.dirname(total_mrc_files[0]))
 
 
